@@ -1,26 +1,16 @@
 pipeline{
     agent any
-    stages{
-        
-         stage('Checkout'){
-            steps{
-                withCredentials([string(credentialsId: 'Git_1', variable: 'git')]) {
-                echo "My password is '${git}'!"
-                checkout([$class: 'GitSCM',
-                branches: [[name: 'master']],
-                extensions: [[$class: 'WipeWorkspace']],
-                userRemoteConfigs: [[url: "${git}"]]
-                ])
-                       }
-            }
-            }
-        stage ('Build and Test'){
+    stages{        
+         
+        stage ('Build and Test')
+        {
             steps{
                     sh "mvn clean install"
             }
         }
          
-        stage('Code Quality') {
+        stage('Code Quality')
+        {
              environment {
                 scannerHome=tool 'sonar scanner'
             }
