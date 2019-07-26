@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="http://18.224.182.74:8000")
+@CrossOrigin(origins="http://18.188.202.13:8000")
 @SpringBootApplication
 @RestController
 
